@@ -1,8 +1,6 @@
-﻿// Learn more about F# at http://fsharp.org
-
-open System
+﻿module AdventOfCode.Program
 
 [<EntryPoint>]
 let main argv =
-    printfn "Hello World from F#!"
+    Day1.run()
     0 // return an integer exit code
