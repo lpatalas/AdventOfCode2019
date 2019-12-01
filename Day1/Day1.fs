@@ -3,15 +3,18 @@ module AdventOfCode.Day1
 let getRequiredFuel mass =
     (mass / 3) - 2
 
-let rec getTotalRequiredFuel mass =
-    let requiredFuel = getRequiredFuel mass
-    if requiredFuel <= 0 then
-        0
-    else
-        requiredFuel + getTotalRequiredFuel requiredFuel
+let getTotalRequiredFuel mass =
+    let rec iter total mass =
+        let requiredFuel = getRequiredFuel mass
+        if requiredFuel <= 0 then
+            total
+        else
+            iter (total + requiredFuel) requiredFuel
+
+    iter 0 mass
 
 let getInputMasses fileName =
-    readInputFile "Day1"
+    readInputFile fileName
     |> Seq.map parseInt
 
 let calculateFuel calculator =
