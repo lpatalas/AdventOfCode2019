@@ -2,11 +2,17 @@
 module AdventOfCode.Utils
 
 open System
+open System.Collections.Generic
 open System.IO
 open System.Reflection
 
 let parseInt input =
     Int32.Parse input
+
+let toReadOnlyList input =
+    input
+    |> Seq.toArray
+    :> IReadOnlyList<_>
 
 let readAllLines (stream: Stream) =
     seq {
@@ -21,4 +27,4 @@ let readInputFile name =
     let assembly = Assembly.GetExecutingAssembly()
     use inputStream = assembly.GetManifestResourceStream name
     if isNull inputStream then invalidOp "Can't find resource"
-    readAllLines inputStream |> Seq.toArray
+    readAllLines inputStream |> toReadOnlyList
