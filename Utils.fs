@@ -9,6 +9,9 @@ open System.Reflection
 let parseInt input =
     Int32.Parse input
 
+let splitString (separator: char) (input: string) =
+    input.Split(separator)
+
 let toReadOnlyList input =
     input
     |> Seq.toArray

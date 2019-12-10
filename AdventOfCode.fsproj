@@ -11,7 +11,7 @@
 
     <ItemGroup>
         <Compile Include="Utils.fs" />
-        <Compile Include="Day*\*.fs" />
+        <Compile Include="Day*\Day*.fs" />
         <Compile Include="Program.fs" />
     </ItemGroup>
 
